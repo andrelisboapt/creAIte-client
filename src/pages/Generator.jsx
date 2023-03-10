@@ -1,41 +1,20 @@
 import React, {useState} from 'react'
-import { Configuration, OpenAIApi} from "openai";
+import axios from 'axios';
 
   
-  const configuration = new Configuration({
-    apiKey:import.meta.env.VITE_API_KEY,
-  
-  });
-  
-  const openai = new OpenAIApi(configuration)
+ 
 
 function Generator() {
-    const [image, setImage] = useState("")
-    const [isLoading, setIsLoading] = useState(false);
-    const [search, setSearch] = useState("")
-
-    const generateImage = async () =>{
+    
     try {
-        setIsLoading(true)
-        const response = await openai.createImage({
-            prompt: search,
-            n: 1,
-            size: "256x256",
-           })
-console.log(response)
-           setImage(response.data.data[0].url)
-           setIsLoading(false)
-    
-    
-    
+        
     } catch (error) {
-        setIsLoading(false);
-        console.log(error)
-    }}
+       
+    }
 
 
-  return (
-    <div>
+  return 
+    /* <div>
       <h1>Image Generator</h1>
       <div>
         <input placeholder="Enter your search" onChange={(e) => setSearch(e.target.value)}/>
@@ -52,8 +31,8 @@ console.log(response)
         <img src={image} alt="" />
       )}
       </div>
-    </div>
-  )
-}
+    </div> */
+  
+      }
 
 export default Generator

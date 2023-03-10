@@ -1,5 +1,4 @@
-import React from 'react'
-/* 
+import React, {useState} from 'react'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,12 +12,15 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import styled from "styled-components";
+import { StyledNav } from "./styled/Navbar.styled";
+import { Link } from 'react-router-dom';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
- */
-function ResponsiveAppBar() {
-  /* const [anchorElNav, setAnchorElNav] = React.useState(null);
+const pages = ['Signup', 'Login'];
+const settings = ['Feed', 'Profile', 'Logout'];
+ 
+function Navbar() {
+   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -37,27 +39,12 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static">
+    <StyledNav>
+    <AppBar className="navbar">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography>
+          
+          <img className="logo" src="/logo1.png" alt="creAIte logo" />
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -100,7 +87,7 @@ function ResponsiveAppBar() {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -116,13 +103,16 @@ function ResponsiveAppBar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
+              
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
+                className="buttons"
               >
                 {page}
               </Button>
+              
             ))}
           </Box>
 
@@ -158,6 +148,7 @@ function ResponsiveAppBar() {
         </Toolbar>
       </Container>
     </AppBar>
-  ); */
+    </StyledNav>
+  ); 
 }
-export default ResponsiveAppBar;
+export default Navbar;
