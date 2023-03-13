@@ -11,6 +11,7 @@ import CreatePost from './pages/CreatePost'
 import Feed from './pages/Feed'
 import CommentPage from './pages/CommentPage'
 import Navbar from './components/Navbar'
+import Private from './components/Private'
 
 
 
@@ -30,7 +31,7 @@ function App() {
       <Route path="/signup" element={<Signup />}/>
       <Route path="/profile" element={<Profile />}/>
       <Route path="/profile/edit" element={<EditProfile />}/>
-      <Route path="/generator" element={<Generator />}/>
+      <Route path="/generator" element={<Private><Generator /></Private>}/>
       <Route path="/post/create" element={<CreatePost />}/>
       <Route path="/feed" element={<Feed />}/>
       <Route path="/feed/post/comment" element={<CommentPage />}/>

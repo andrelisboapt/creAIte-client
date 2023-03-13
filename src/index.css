@@ -29,6 +29,9 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-image: url(banner.jpg);
+  background-repeat: no-repeat;
+  background-position: top
 }
 
 h1 {
@@ -66,5 +69,15 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+.container{
+  position:relative;
+}
+#myCheckbox1{
+  position:absolute;
+  width: 60px;
+  height: 60px;
+  bottom:0;
+  
 }
 
