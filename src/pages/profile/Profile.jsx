@@ -13,7 +13,8 @@ import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../context/authContext";
 import { useParams } from "react-router-dom";
 import Gallery from "../../components/gallery/Gallery";
-import { navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 const Profile = () => {
   
@@ -55,11 +56,7 @@ const Profile = () => {
 
   return (
     <div className="profile">
-    {user && (
-      <>
-    <h1>Hi, {user.firstName}</h1>
-    </>
-    )}
+   
       <div className="images">
       
         <img
@@ -99,20 +96,21 @@ const Profile = () => {
                 <PlaceIcon />
                 <span>PT</span>
               </div>
+              
             </div>
+              {user.aboutMe}
             
           </div>
           <div className="right">
-            <EmailOutlinedIcon />
-            <MoreVertIcon />
+            
           </div>
           <br/>
-          <button>Edit</button>  
+          <Link to="/profile/edit"><button>Edit</button>  </Link>
         
       
         </div>
         <Gallery user={user}/>
-       
+     
       </div>
     </div>
   );

@@ -17,6 +17,8 @@ import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/authContext";
 import Private from "./components/Private";
 import Generator from "./pages/generator/Generator";
+import CreatePost from "./pages/createPost/CreatePost";
+import EditProfile from "./pages/editProfile/EditProfile";
 
 
 
@@ -70,6 +72,14 @@ function App() {
         {
           path: "/generator",
           element: <Generator />,
+        },
+        {
+          path: "/post/create",
+          element: <CreatePost />,
+        },
+        {
+          path: "/profile/edit",
+          element: <EditProfile />,
         },
       ],
       

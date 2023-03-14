@@ -4,13 +4,51 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 import CameraEnhanceIcon from '@mui/icons-material/CameraEnhance';
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { AuthContext } from "../../context/authContext";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import LogoutIcon from '@mui/icons-material/Logout';
+import { Button } from "@mui/material";
+
 
 const Navbar = () => {
   const { toggle, darkMode } = useContext(DarkModeContext);
-  const { user } = useContext(AuthContext);
+  
+  const {logout} = useContext(AuthContext)
+
+
+
+  
+  const [user, setUser] = useState([]);
+
+  let { userId } = useParams();
+
+  const storedToken = localStorage.getItem("authToken");
+
+  
+
+  const getUser = async () => {
+    try {
+      let response = await axios.get(
+        `${process.env.REACT_APP_API}/api/profile/${userId}`,
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
+      );
+      console.log(response)
+      setUser(response.data);
+      
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getUser();
+
+  }, [logout]);
 
   return (
     <div className="navbar">
@@ -24,22 +62,23 @@ const Navbar = () => {
         ) : (
           <DarkModeOutlinedIcon onClick={toggle} />
         )}
+        <Link to="/generator"style={{ textDecoration: "none" }}>
         <CameraEnhanceIcon/>
-       {/*  <GridViewOutlinedIcon /> */}
-       {/*  <div className="search">
-          <SearchOutlinedIcon />
-          <input type="text" placeholder="Search..." />
-        </div> */}
+        </Link>
+       
       </div>
       <div className="right">
-        {/* <PersonOutlinedIcon />
-        <EmailOutlinedIcon /> */}
+       
        
         <div className="user">
+        <h2>{user.firstName}</h2>
           <img
-            src=""
+            src={user.profileImage}
             alt=""
           />
+          <Link to="/"style={{ textDecoration: "none" }}>
+          <Button onClick={logout}><LogoutIcon/></Button>
+          </Link>
           <span></span>
         </div>
       </div>

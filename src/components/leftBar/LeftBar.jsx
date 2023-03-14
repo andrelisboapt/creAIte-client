@@ -14,26 +14,39 @@ const LeftBar = () => {
       <div className="container">
         <div className="menu">
           
+      <a target= "_blank" href="https://rafaelaumbelino.github.io/Project1_Game_January23/">
+      <div className="item">
+       <img src={Game} alt="" />
+       <span>Avoid Game</span>
+         </div>
+      </a>
+
+      <a target= "_blank" href="https://andrelisboapt.github.io/Wizzards_and_Demons/">
           <div className="item">
             <img src={Game} alt="" />
-            <span>Avoide Game</span>
+            <span>2-D Shooter Game</span>
           </div>
-          <div className="item">
-            <img src={Game} alt="" />
-            <span>Game</span>
-          </div>
+          </a>
+         <a target="_blank" href="https://recipe-generator.cyclic.app">
           <div className="item">
             <img src={Friends} alt="" />
             <span>Diner Recepies</span>
           </div>
+          </a>
+
+          <a target="_blank" href="https://cryptohacker.cyclic.app/">
            <div className="item">
             <img src={Fund} alt="" />
-            <span>Digital Coins</span>
+            <p>Cryptocurrencies Market</p>
           </div>
+          </a>
+          
+          
           <div className="item">
             <img src={Map} alt="" />
-            <span>Contact the web team</span>
+            <p>Contact the team: <a target="_blank" href="https://www.linkedin.com/in/andrelisboapt/" >André</a> & <a target="_blank" href="https://www.linkedin.com/in/tomas-belmar/" >Tomás</a></p>
           </div>
+        
         </div>
         <hr />
 
