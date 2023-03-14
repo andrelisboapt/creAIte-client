@@ -1,29 +1,67 @@
-import { createContext, useEffect, useState } from "react";
+import { useState, useEffect, createContext } from "react";
+import axios from "axios";
 
-export const AuthContext = createContext();
+const AuthContext = createContext();
 
-export const AuthContextProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(
-    JSON.parse(localStorage.getItem("user")) || null
-  );
+function AuthWrapper(props){
+    const [loggedIn, setLoggedIn] = useState(false)
+    const [user, setUser] = useState(null) //user is an object
+    const [loading, setLoading] = useState(true)
+    
+    //functions and methods
 
-  const login = () => {
-    //TO DO
-    setCurrentUser({
-      id: 1,
-      name: "User Teste ",
-      profilePic:
-        "https://images.pexels.com/photos/3228727/pexels-photo-3228727.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    });
-  };
+    const authenticateUser = async () => {
+        //check for a token
+        const storedToken = localStorage.getItem("authToken")
 
-  useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(currentUser));
-  }, [currentUser]);
+        //if the token exists
+        if(storedToken) {
+            try {
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/auth/verify`, {
+                    headers: {
+                        Authorization: `Bearer ${storedToken}`
+                    }
+                }) 
 
-  return (
-    <AuthContext.Provider value={{ currentUser, login }}>
-      {children}
+                setLoggedIn(true)
+                setUser(response.data)
+                setLoading(false)
+            } catch (error) {
+                console.log(error)
+                //here we know we got an error
+                setLoggedIn(false)
+                setUser(null)
+                setLoading(false)
+            }
+           
+
+
+
+        } else {
+            setLoggedIn(false)
+            setUser(null)
+            setLoading(false)
+        }
+
+
+    }
+
+    const logout = () =>{
+        localStorage.removeItem("authToken")
+        authenticateUser();
+    }
+
+
+    useEffect(()=>{
+        authenticateUser();
+    }, [])
+
+    return (
+    <AuthContext.Provider value={{loggedIn, user, loading, authenticateUser, logout}}>
+        {props.children}
     </AuthContext.Provider>
-  );
-};
+    );
+}
+
+export {AuthContext, AuthWrapper} //we dont use the default because we have more than 1 thing
+

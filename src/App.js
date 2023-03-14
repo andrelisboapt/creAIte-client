@@ -1,5 +1,5 @@
 import Login from "./pages/login/Login";
-import Register from "./pages/register/Register";
+import Signup from "./pages/signup/Signup";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -15,6 +15,10 @@ import "./style.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/authContext";
+import Private from "./components/Private";
+import Generator from "./pages/generator/Generator";
+
+
 
 function App() {
   const {currentUser} = useContext(AuthContext);
@@ -35,21 +39,15 @@ function App() {
     );
   };
 
-  const ProtectedRoute = ({ children }) => {
-    if (!currentUser) {
-      return <Navigate to="/login" />;
-    }
 
-    return children;
-  };
 
   const router = createBrowserRouter([
     {
       path: "/",
       element: (
-        <ProtectedRoute>
+       
           <Layout />
-        </ProtectedRoute>
+        
       ),
       children: [
         {
@@ -57,18 +55,24 @@ function App() {
           element: <Home />,
         },
         {
-          path: "/profile/:id",
+          path: "/profile/:userId",
           element: <Profile />,
         },
+        
         {
           path: "/login",
           element: <Login />,
         },
+        {
+          path: "/signup",
+          element: <Signup />,
+        },
+        {
+          path: "/generator",
+          element: <Generator />,
+        },
       ],
-    },
-    {
-      path: "/register",
-      element: <Register />,
+      
     },
   ]);
   

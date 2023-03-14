@@ -11,47 +11,58 @@ import Posts from "../../components/posts/Posts"
 import axios from "axios";
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../context/authContext";
+import { useParams } from "react-router-dom";
 
 const Profile = () => {
-  const { user } = useContext(AuthContext);
-  const [profile, setProfile] = useState(null);
+  
+ 
+  const [user, setUser] = useState([]);
+
+  let { userId } = useParams();
 
   const storedToken = localStorage.getItem("authToken");
 
-  const getProfile = async () => {
+  
+
+  const getUser = async () => {
     try {
       let response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/profile/${user._id}`,
+        `${process.env.REACT_APP_API}/api/profile/${userId}`,
         {
           headers: { Authorization: `Bearer ${storedToken}` },
         }
       );
-      setProfile(response.data);
+      console.log(response)
+      setUser(response.data);
+      
     } catch (error) {
       console.log(error);
     }
   };
+ 
+
 
   useEffect(() => {
-    getProfile();
+    getUser();
 
   }, []);
+
   return (
     <div className="profile">
-    {profile && (
+    {user && (
       <>
-    <h1>Hi, jjjjjjjjjjjjjjjjjjjjjjjjjjjjj</h1>
+    <h1>Hi, {user.firstName}</h1>
     </>
     )}
       <div className="images">
       
         <img
-          src="https://images.pexels.com/photos/13440765/pexels-photo-13440765.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          src="https://wallpaperaccess.com/full/8351209.gif"
           alt=""
           className="cover"
         />
         <img
-          src="https://images.pexels.com/photos/14028501/pexels-photo-14028501.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+          src={user.profileImage}
           alt=""
           className="profilePic"
         />
@@ -76,7 +87,7 @@ const Profile = () => {
             </a>
           </div>
           <div className="center">
-            <span>User Teste</span>
+            <span>{user.firstName} {user.lastName}</span>
             <div className="info">
               <div className="item">
                 <PlaceIcon />
@@ -92,7 +103,7 @@ const Profile = () => {
           <br/>
           <button>Edit</button>  
         </div>
-      <Posts/>
+      {/* <Posts/> */}
       </div>
     </div>
   );
