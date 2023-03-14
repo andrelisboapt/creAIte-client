@@ -12,6 +12,8 @@ import axios from "axios";
 import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../context/authContext";
 import { useParams } from "react-router-dom";
+import Gallery from "../../components/gallery/Gallery";
+import { navigate } from "react-router-dom";
 
 const Profile = () => {
   
@@ -46,6 +48,10 @@ const Profile = () => {
     getUser();
 
   }, []);
+
+
+
+  
 
   return (
     <div className="profile">
@@ -102,8 +108,11 @@ const Profile = () => {
           </div>
           <br/>
           <button>Edit</button>  
+        
+      
         </div>
-      {/* <Posts/> */}
+        <Gallery user={user}/>
+       
       </div>
     </div>
   );
