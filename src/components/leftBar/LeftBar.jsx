@@ -14,27 +14,27 @@ const LeftBar = () => {
       <div className="container">
         <div className="menu">
           
-      <a target= "_blank" href="https://rafaelaumbelino.github.io/Project1_Game_January23/">
+      <a target= "_blank" className="linkWithoutColor" href="https://rafaelaumbelino.github.io/Project1_Game_January23/">
       <div className="item">
        <img src={Game} alt="" />
-       <span>Avoid Game</span>
+       <p>Avoid Game</p>
          </div>
       </a>
 
-      <a target= "_blank" href="https://andrelisboapt.github.io/Wizzards_and_Demons/">
+      <a target= "_blank" className="linkWithoutColor" href="https://andrelisboapt.github.io/Wizzards_and_Demons/">
           <div className="item">
             <img src={Game} alt="" />
-            <span>2-D Shooter Game</span>
+            <p>2-D Shooter Game</p>
           </div>
           </a>
-         <a target="_blank" href="https://recipe-generator.cyclic.app">
+         <a target="_blank" className="linkWithoutColor" href="https://recipe-generator.cyclic.app">
           <div className="item">
             <img src={Friends} alt="" />
-            <span>Diner Recepies</span>
+            <p>Diner Recepies</p>
           </div>
           </a>
 
-          <a target="_blank" href="https://cryptohacker.cyclic.app/">
+          <a target="_blank" className="linkWithoutColor" href="https://cryptohacker.cyclic.app/">
            <div className="item">
             <img src={Fund} alt="" />
             <p>Cryptocurrencies Market</p>

@@ -42,7 +42,7 @@ const Gallery = () => {
           headers: { Authorization: `Bearer ${storedToken}` },
         }
       );
-      console.log(response)
+      
       setUser(response.data);
       setGallery(response.data.gallery)
       setLoading(false)
@@ -69,6 +69,19 @@ const Gallery = () => {
         {
             headers: { Authorization: `Bearer ${storedToken}` },
           });
+        getUser()
+    } catch (error) {
+        console.log(error)
+    }
+}
+  const editAvatar = async (imgId) => {
+    console.log(imgId)
+    try {
+        await axios.put(`${process.env.REACT_APP_API}/api/gallery/avatar`, {},
+        {
+            headers: { Authorization: `Bearer ${storedToken}` },
+          });
+
         getUser()
     } catch (error) {
         console.log(error)
@@ -104,7 +117,7 @@ const Gallery = () => {
                           aria-label="text button group"
                         >
                           <Button onClick={() => deleteImage(item._id)}>Delete</Button>
-                          <Button>Update photo</Button>
+                          <Button onClick={() => editAvatar(item.imageURL)}>Update photo</Button>
                           <Button>Post</Button>
                         </ButtonGroup>
                       }

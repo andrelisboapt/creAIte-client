@@ -3,7 +3,7 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 import CameraEnhanceIcon from '@mui/icons-material/CameraEnhance';
-import { Link } from "react-router-dom";
+import { Link as Rink } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { AuthContext } from "../../context/authContext";
@@ -11,6 +11,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import LogoutIcon from '@mui/icons-material/Logout';
 import { Button } from "@mui/material";
+import {Link} from "@mui/material";
 
 
 const Navbar = () => {
@@ -37,7 +38,7 @@ const Navbar = () => {
           headers: { Authorization: `Bearer ${storedToken}` },
         }
       );
-      console.log(response)
+      
       setUser(response.data);
       
     } catch (error) {
@@ -48,21 +49,21 @@ const Navbar = () => {
   useEffect(() => {
     getUser();
 
-  }, [logout]);
+  }, [user]);
 
   return (
     <div className="navbar">
       <div className="left">
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Rink to="/" style={{ textDecoration: "none" }}>
           <span>CreAIte</span>
-        </Link>
+        </Rink>
         <HomeOutlinedIcon />
         {darkMode ? (
           <WbSunnyOutlinedIcon onClick={toggle} />
         ) : (
           <DarkModeOutlinedIcon onClick={toggle} />
         )}
-        <Link to="/generator"style={{ textDecoration: "none" }}>
+        <Link href="/generator" underline="none" color="inherit">
         <CameraEnhanceIcon/>
         </Link>
        
@@ -76,9 +77,9 @@ const Navbar = () => {
             src={user.profileImage}
             alt=""
           />
-          <Link to="/"style={{ textDecoration: "none" }}>
+          <Rink to="/">
           <Button onClick={logout}><LogoutIcon/></Button>
-          </Link>
+          </Rink>
           <span></span>
         </div>
       </div>

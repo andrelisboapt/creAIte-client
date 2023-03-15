@@ -51,10 +51,10 @@ const EditProfile = () => {
 
   const navigate = useNavigate();
 
-  const [firstName, setFirstName] = useState("");
-  const [email, setEmail] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [aboutMe, setAboutMe] = useState("");
+  const [firstName, setFirstName] = useState(user.firstName);
+  const [email, setEmail] = useState(user.email);
+  const [lastName, setLastName] = useState(user.lastName);
+  const [aboutMe, setAboutMe] = useState(user.aboutMe);
   
   const handleFirstName = (e) => setFirstName(e.target.value)
   const handleEmail = (e) => setEmail(e.target.value)
@@ -74,7 +74,7 @@ const EditProfile = () => {
         }
       );
         navigate(`/profile/${userId}`)
-
+        getUser();
     } catch (error) {
         console.log(error)
     }
