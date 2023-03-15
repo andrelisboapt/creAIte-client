@@ -1,4 +1,3 @@
-import "./post.scss";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import TextsmsOutlinedIcon from "@mui/icons-material/TextsmsOutlined";
@@ -8,6 +7,7 @@ import Comments from "../comments/Comments";
 import { Button } from "@mui/material";
 import axios from "axios";
 import { useContext, useState, useEffect } from "react";
+import "./post.scss";
 
 const Post = ({post, getPosts}) => {
   const [commentOpen, setCommentOpen] = useState(false);
@@ -46,14 +46,14 @@ console.log(storedToken)
               > */}
                 <span className="name">{post.creator.firstName} {post.creator.lastName}</span>
              {/*</div> </Link>*/}
-              <span className="date"></span>
+              <span className="date">1 min ago</span>
             </div>
           </div>
-          <MoreHorizIcon />
+          
         </div>
         <div className="content">
-          <p>{post.desc}</p>
-          <img src={post.imageURL} alt="" />
+          <p>{post.description}</p>
+          <img className="img" src={post.imageURL} alt="" />
         </div>
         <div className="info">
           <div className="item">

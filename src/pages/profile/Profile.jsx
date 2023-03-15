@@ -16,6 +16,8 @@ import Gallery from "../../components/gallery/Gallery";
 import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 import LogoutIcon from '@mui/icons-material/Logout';
+import EditIcon from '@mui/icons-material/Edit';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 
 
@@ -63,7 +65,6 @@ const Profile = () => {
     <div className="profile">
    
       <div className="images">
-      
         <img
           src="https://wallpaperaccess.com/full/8351209.gif"
           alt=""
@@ -77,48 +78,42 @@ const Profile = () => {
       </div>
       <div className="profileContainer">
         <div className="uInfo">
-          <div className="left">
-            <a href="http://facebook.com">
-              <FacebookTwoToneIcon fontSize="large" />
-            </a>
-            <a href="http://facebook.com">
-              <InstagramIcon fontSize="large" />
-            </a>
-            <a href="http://facebook.com">
-              <TwitterIcon fontSize="large" />
-            </a>
-            <a href="http://facebook.com">
-              <LinkedInIcon fontSize="large" />
-            </a>
-            <a href="http://facebook.com">
-              <PinterestIcon fontSize="large" />
-            </a>
+          <div className="left editIcon">
+          <Link to="/profile/edit"><EditIcon>Edit</EditIcon>  </Link>
+          
           </div>
           <div className="center">
             <span>{user.firstName} {user.lastName}</span>
             <div className="info">
               <div className="item">
-                <PlaceIcon />
-                <span>PT</span>
+              <a className="socialmedia" href="http://facebook.com">
+              <FacebookTwoToneIcon fontSize="medium" />
+            </a>
+            <a className="socialmedia" href="http://facebook.com">
+              <InstagramIcon fontSize="medium" />
+            </a>
+            <a className="socialmedia" href="http://facebook.com">
+              <TwitterIcon fontSize="medium" />
+            </a>
+            <a className="socialmedia" href="http://facebook.com">
+              <LinkedInIcon fontSize="medium" />
+            </a>
               </div>
               
             </div>
               {user.aboutMe}
             
           </div>
-          <div className="right">
-            
-          </div>
-          <br/>
-          <Link to="/profile/edit"><button>Edit</button>  </Link>
-          <Link to="/">
-          <Button onClick={logout}><LogoutIcon/></Button>
-          </Link>
+          <div className="right Exitbtn">
+          
+          <ExitToAppIcon onClick={logout}/>
       
+          </div>
         </div>
         <Gallery user={user}/>
      
       </div>
+      
     </div>
   );
 };

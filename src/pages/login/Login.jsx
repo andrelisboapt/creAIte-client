@@ -62,7 +62,7 @@ const navigate = useNavigate()
           }}
         >
           <Typography component="h1" variant="h5">
-            <b>Login</b>
+            <b>Login CreAIte</b>
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField

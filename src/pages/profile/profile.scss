@@ -61,7 +61,7 @@
 
         .left {
           flex: 1;
-          display: flex;
+          /* display: flex; */
           gap: 10px;
 
           @include tablet{
@@ -96,6 +96,7 @@
               align-items: center;
               gap: 5px;
               color: themed("textColorSoft");
+              
 
               span {
                 font-size: 12px;
@@ -114,7 +115,7 @@
         }
         button {
           border: none;
-          background-color: #5271ff;
+          background-color: #7c92f5;
           color: white;
           padding: 10px 20px;
           border-radius: 5px;
@@ -123,4 +124,11 @@
       }
     }
   }
+}
+.socialmedia{
+  color: inherit
+}
+.Exitbtn{
+  color: inherit
+
 }

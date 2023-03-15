@@ -44,7 +44,7 @@ const LeftBar = () => {
           
           <div className="item">
             <img src={Map} alt="" />
-            <p>Contact the team: <a target="_blank" href="https://www.linkedin.com/in/andrelisboapt/" >André</a> & <a target="_blank" href="https://www.linkedin.com/in/tomas-belmar/" >Tomás</a></p>
+            <p>Contact the team: <a className="namesWithoutColor" target="_blank" href="https://www.linkedin.com/in/andrelisboapt/" >André</a> & <a className="namesWithoutColor" target="_blank" href="https://www.linkedin.com/in/tomas-belmar/" >Tomás</a></p>
           </div>
         
         </div>
