@@ -14,14 +14,19 @@ import { AuthContext } from "../../context/authContext";
 import { useParams } from "react-router-dom";
 import Gallery from "../../components/gallery/Gallery";
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
+import LogoutIcon from '@mui/icons-material/Logout';
+
 
 
 const Profile = () => {
   
+  const {logout} = useContext(AuthContext)
+
  
   const [user, setUser] = useState([]);
 
-  let { userId } = useParams();
+  
 
   const storedToken = localStorage.getItem("authToken");
 
@@ -30,7 +35,7 @@ const Profile = () => {
   const getUser = async () => {
     try {
       let response = await axios.get(
-        `${process.env.REACT_APP_API}/api/profile/${userId}`,
+        `${process.env.REACT_APP_API}/api/profile`,
         {
           headers: { Authorization: `Bearer ${storedToken}` },
         }
@@ -106,7 +111,9 @@ const Profile = () => {
           </div>
           <br/>
           <Link to="/profile/edit"><button>Edit</button>  </Link>
-        
+          <Link to="/">
+          <Button onClick={logout}><LogoutIcon/></Button>
+          </Link>
       
         </div>
         <Gallery user={user}/>

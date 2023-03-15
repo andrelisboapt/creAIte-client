@@ -20,16 +20,17 @@ const EditProfile = () => {
     
     const [user, setUser] = useState([]);
     
-    let { userId } = useParams();
+    
     
     const storedToken = localStorage.getItem("authToken");
 
+    const {authenticateUser} = useContext(AuthContext)
   
 
   const getUser = async () => {
       try {
       let response = await axios.get(
-        `${process.env.REACT_APP_API}/api/profile/${userId}`,
+        `${process.env.REACT_APP_API}/api/profile`,
         {
             headers: { Authorization: `Bearer ${storedToken}` },
         }
@@ -73,8 +74,9 @@ const EditProfile = () => {
             },
         }
       );
-        navigate(`/profile/${userId}`)
-        getUser();
+      authenticateUser()
+        navigate(`/profile`)
+        
     } catch (error) {
         console.log(error)
     }

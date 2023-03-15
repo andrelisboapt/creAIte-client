@@ -17,7 +17,7 @@ function AuthWrapper(props){
         //if the token exists
         if(storedToken) {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_API_URL}/auth/verify`, {
+                const response = await axios.get(`${process.env.REACT_APP_API}/auth/verify`, {
                     headers: {
                         Authorization: `Bearer ${storedToken}`
                     }

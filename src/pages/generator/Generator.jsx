@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./generator.scss"
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 
 function Generator() {
   const [search, setSearch] = useState(null);
@@ -71,18 +73,14 @@ function Generator() {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className="generator">
       <h1>Image Generator</h1>
       <div>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="search">Search</label>
-          <input
-            type="text"
-            name="search"
-            id="search"
-            value={search}
-            onChange={handleSearch}
-          />
+        <div className="search">
+          <SearchOutlinedIcon />
+          <input type="text" placeholder="Search..." />
+        </div> 
           <button type="submit">Generate</button>
         </form>
       </div>

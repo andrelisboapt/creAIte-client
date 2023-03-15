@@ -9,7 +9,7 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-
+import "./login.scss";
 
 
 function Login() {
@@ -35,8 +35,8 @@ const handleSubmit = async (e) => {
 
         authenticateUser()
 
-        console.log(response.data.authToken)
-        navigate('/profile/:id');
+       
+        navigate('/profile');
     } catch (error) {
         console.log(error)
     }
@@ -47,7 +47,8 @@ const handleSubmit = async (e) => {
 const navigate = useNavigate()
 
     return (
-      <Container component="main" maxWidth="sm">
+    
+      <Container component="main" maxWidth="sm" >
         <Box 
           sx={{
             boxShadow: 7,

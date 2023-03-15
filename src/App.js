@@ -19,20 +19,22 @@ import Private from "./components/Private";
 import Generator from "./pages/generator/Generator";
 import CreatePost from "./pages/createPost/CreatePost";
 import EditProfile from "./pages/editProfile/EditProfile";
-
+import Feed from "./pages/feed/Feed";
+import Anon from "./components/Anon";
 
 
 function App() {
-  const {currentUser} = useContext(AuthContext);
-
+  const {loggedIn} = useContext(AuthContext);
+console.log(loggedIn)
   const { darkMode } = useContext(DarkModeContext);
 
   const Layout = () => {
     return (
       <div className={`theme-${darkMode ? "dark" : "light"}`}>
-        <Navbar />
+        {loggedIn && <Navbar />}
+
         <div style={{ display: "flex" }}>
-          <LeftBar />
+        {loggedIn && <LeftBar />}
           <div style={{ flex: 6 }}>
             <Outlet />
           </div>
@@ -54,32 +56,73 @@ function App() {
       children: [
         {
           path: "/",
-          element: <Home />,
+          element: [
+            <Anon>
+          <Home />
+          </Anon>
+          ]
+
         },
         {
-          path: "/profile/:userId",
-          element: <Profile />,
+          path: "/profile",
+          element: [
+            <Private>
+            <Profile />
+            </Private>
+          ]
         },
         
         {
           path: "/login",
-          element: <Login />,
+          element: [
+            <Anon>
+          <Login />
+          </Anon>
+          ]
         },
         {
           path: "/signup",
-          element: <Signup />,
+          element: [
+            <Anon>
+          <Signup />
+          </Anon>
+          ]
         },
         {
           path: "/generator",
-          element: <Generator />,
+          element:[
+            <Private>
+            <Generator />
+            </Private>
+          ] 
         },
         {
-          path: "/post/create",
-          element: <CreatePost />,
+          path: "/post",
+          element: [
+            <Private>
+            <CreatePost />
+            </Private>
+
+          ]
         },
         {
           path: "/profile/edit",
-          element: <EditProfile />,
+          element: [
+<Private>
+<EditProfile />
+
+</Private>
+
+          ]
+        },
+        {
+          path: "/feed",
+          element: [
+            <Private>
+          <Feed />
+
+            </Private>
+          ]
         },
       ],
       

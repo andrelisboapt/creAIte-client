@@ -37,7 +37,7 @@ const Gallery = () => {
   const getUser = async () => {
       try {
           let response = await axios.get(
-        `${process.env.REACT_APP_API}/api/profile/${userId}`,
+        `${process.env.REACT_APP_API}/api/profile`,
         {
           headers: { Authorization: `Bearer ${storedToken}` },
         }
@@ -82,11 +82,11 @@ const Gallery = () => {
             headers: { Authorization: `Bearer ${storedToken}` },
           });
 
-        getUser()
+        
     } catch (error) {
         console.log(error)
     }
-}
+} 
 
   return (
     <div className="post">
@@ -118,7 +118,7 @@ const Gallery = () => {
                         >
                           <Button onClick={() => deleteImage(item._id)}>Delete</Button>
                           <Button onClick={() => editAvatar(item.imageURL)}>Update photo</Button>
-                          <Button>Post</Button>
+                          <Link to="/post" state={{imageURL:item.imageURL}}>Post</Link>
                         </ButtonGroup>
                       }
                     />

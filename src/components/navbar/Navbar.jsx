@@ -9,22 +9,23 @@ import { DarkModeContext } from "../../context/darkModeContext";
 import { AuthContext } from "../../context/authContext";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import LogoutIcon from '@mui/icons-material/Logout';
+
 import { Button } from "@mui/material";
 import {Link} from "@mui/material";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import PublicIcon from '@mui/icons-material/Public';
 
 
 const Navbar = () => {
   const { toggle, darkMode } = useContext(DarkModeContext);
   
-  const {logout} = useContext(AuthContext)
-
+  
 
 
   
   const [user, setUser] = useState([]);
 
-  let { userId } = useParams();
+
 
   const storedToken = localStorage.getItem("authToken");
 
@@ -33,7 +34,7 @@ const Navbar = () => {
   const getUser = async () => {
     try {
       let response = await axios.get(
-        `${process.env.REACT_APP_API}/api/profile/${userId}`,
+        `${process.env.REACT_APP_API}/api/profile`,
         {
           headers: { Authorization: `Bearer ${storedToken}` },
         }
@@ -49,7 +50,7 @@ const Navbar = () => {
   useEffect(() => {
     getUser();
 
-  }, [user]);
+  }, []);
 
   return (
     <div className="navbar">
@@ -57,7 +58,9 @@ const Navbar = () => {
         <Rink to="/" style={{ textDecoration: "none" }}>
           <span>CreAIte</span>
         </Rink>
-        <HomeOutlinedIcon />
+        <Link href="/profile" underline="none" color="inherit">
+        <AccountCircleIcon />
+        </Link>
         {darkMode ? (
           <WbSunnyOutlinedIcon onClick={toggle} />
         ) : (
@@ -66,6 +69,10 @@ const Navbar = () => {
         <Link href="/generator" underline="none" color="inherit">
         <CameraEnhanceIcon/>
         </Link>
+        <Link href="/feed" underline="none" color="inherit">
+        <PublicIcon/>
+        </Link>
+        
        
       </div>
       <div className="right">
@@ -77,9 +84,7 @@ const Navbar = () => {
             src={user.profileImage}
             alt=""
           />
-          <Rink to="/">
-          <Button onClick={logout}><LogoutIcon/></Button>
-          </Rink>
+          
           <span></span>
         </div>
       </div>

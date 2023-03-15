@@ -5,27 +5,47 @@ import TextsmsOutlinedIcon from "@mui/icons-material/TextsmsOutlined";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { Link } from "react-router-dom";
 import Comments from "../comments/Comments";
-import { useState } from "react";
+import { Button } from "@mui/material";
+import axios from "axios";
+import { useContext, useState, useEffect } from "react";
 
-const Post = ({ post }) => {
+const Post = ({post, getPosts}) => {
   const [commentOpen, setCommentOpen] = useState(false);
 
-  //TEMPORARY
-  const liked = false;
+  const storedToken = localStorage.getItem("authToken");
+  const addLike = async (postId) => {
+console.log(storedToken)
 
+    try {
+      let response = await axios.put(
+        `${process.env.REACT_APP_API}/api/likes/${postId}`, null,
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
+      );
+      console.log(response)
+     getPosts()
+      
+    } catch (error) {
+      console.log(error);
+    }
+  };
+ 
+
+  
   return (
     <div className="post">
       <div className="container">
         <div className="user">
           <div className="userInfo">
-            <img src={post.profilePic} alt="" />
+            <img src={post.creator.profileImage} alt="" />
             <div className="details">
-              <Link
-                to={`/profile/${post.userId}`}
+             {/*  <Link
+                to={`/profile/${post.creator._id}`}
                 style={{ textDecoration: "none", color: "inherit" }}
-              >
-                <span className="name">{post.name}</span>
-              </Link>
+              > */}
+                <span className="name">{post.creator.firstName} {post.creator.lastName}</span>
+             {/*</div> </Link>*/}
               <span className="date"></span>
             </div>
           </div>
@@ -33,12 +53,12 @@ const Post = ({ post }) => {
         </div>
         <div className="content">
           <p>{post.desc}</p>
-          <img src={post.img} alt="" />
+          <img src={post.imageURL} alt="" />
         </div>
         <div className="info">
           <div className="item">
-            {liked ? <FavoriteOutlinedIcon /> : <FavoriteBorderOutlinedIcon />}
-            12 Likes
+            {post.likes.length ? <FavoriteOutlinedIcon onClick={() => addLike(post._id)}/> : <FavoriteBorderOutlinedIcon onClick={() => addLike(post._id)}/>}
+            {post.likes.length} Likes
           </div>
           <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
             <TextsmsOutlinedIcon />
