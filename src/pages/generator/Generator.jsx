@@ -77,10 +77,15 @@ function Generator() {
       <h1>Image Generator</h1>
       <div>
         <form onSubmit={handleSubmit}>
-        <div className="search">
-          <SearchOutlinedIcon />
-          <input type="text" placeholder="Search..."  value={search} onChange={handleSearch}/>
-        </div> 
+          <div className="search">
+            <SearchOutlinedIcon />
+            <input
+              type="text"
+              placeholder="Search..."
+              value={search}
+              onChange={handleSearch}
+            />
+          </div>
           <button type="submit">Generate</button>
         </form>
       </div>
