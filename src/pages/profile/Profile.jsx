@@ -73,19 +73,19 @@ const Profile = () => {
       <div className="profileContainer">
         <div className="uInfo">
           <div className="left">
-            <a href="http://facebook.com">
+            <a target= "_blank"href="http://facebook.com">
               <FacebookTwoToneIcon fontSize="large" />
             </a>
-            <a href="http://facebook.com">
+            <a target= "_blank"href="https://www.instagram.com">
               <InstagramIcon fontSize="large" />
             </a>
-            <a href="http://facebook.com">
+            <a target= "_blank"href="https://twitter.com">
               <TwitterIcon fontSize="large" />
             </a>
-            <a href="http://facebook.com">
+            <a target= "_blank"href="https://www.linkedin.com/">
               <LinkedInIcon fontSize="large" />
             </a>
-            <a href="http://facebook.com">
+            <a target= "_blank"href="https://www.pinterest.com/">
               <PinterestIcon fontSize="large" />
             </a>
           </div>
