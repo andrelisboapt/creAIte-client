@@ -49,32 +49,15 @@ const Home = () => {
           </a>
         </div>
 
-        {/*  <!-- Header content with banner image --> */}
-        <div className="row">
-          <div className="column1">
-            <h1>Now on Mobile!</h1>
-            <p>
-              Be cre<b>AI</b>tive anytime, anywhere! Download now for Android!
-            </p>
-            <Link
-              to="../../../public/CreAIte_Android.apk"
-              target="_blank"
-              download="CreAIte_Android.apk"
-            >
-              <img
-                classeName="androidapp"
-                src="https://res.cloudinary.com/deifzi7ax/image/upload/v1678925028/androidapp_dhzpb8.png"
-                alt=""
-              />
-            </Link>
-          </div>
-          <div className="column2">
-            <img
-              src="https://res.cloudinary.com/deifzi7ax/image/upload/v1678883305/gifhome_4_wa9xn9.gif"
-              alt="banner"
-              width="300px"
-            />
-          </div>
+      {/*  <!-- Header content with banner image --> */}
+      <div className="row">
+        <div className="column1">
+          <h1>Now on Mobile!</h1>
+          <p>Be cre<b>AI</b>tive anytime, anywhere! Download now for Android!</p>
+          <img classeName="androidapp" src="https://res.cloudinary.com/deifzi7ax/image/upload/v1678925028/androidapp_dhzpb8.png" alt=""/> 
+        </div>
+        <div className="column2">
+          <img src="https://res.cloudinary.com/deifzi7ax/image/upload/v1678883305/gifhome_4_wa9xn9.gif" alt="banner" width="300px"/>
         </div>
       </div>
     </div>
