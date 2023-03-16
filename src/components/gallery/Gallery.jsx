@@ -83,7 +83,7 @@ const reversedGallery = [...gallery].reverse();
           <p>Loading...</p>
         ) : (
           <>
-            {reversedGallery.length === 0 ? (
+            {gallery.length === 0 ? (
               <p>No images found in gallery.</p>
             ) : (
               <ImageList sx={{ maxWidth: '100%', height: '10%' }}>
@@ -91,7 +91,7 @@ const reversedGallery = [...gallery].reverse();
                 
                   
                 </ImageListItem>
-                {reversedGallery.map((item) => (
+                {gallery.map((item) => (
                   <ImageListItem  classeName="galleryMobile" key={item.imageURL}>
                     <img
                       src={`${item.imageURL}?w=248&fit=crop&auto=format`}

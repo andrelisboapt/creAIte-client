@@ -71,7 +71,7 @@ const Home = () => {
           </div>
           <div className="column2">
             <img
-              src="https://res.cloudinary.com/deifzi7ax/image/upload/v1678883305/gifhome_4_wa9xn9.gif"
+              src="https://res.cloudinary.com/deifzi7ax/image/upload/v1679003751/gifhome_4_j1gmnp.gif"
               alt="banner"
               width="300px"
             />

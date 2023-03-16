@@ -34,8 +34,8 @@ const Posts = () => {
 
   const reversedPost = [...post].reverse();
   return <div className="posts">
-    {reversedPost.map(post=>(
-      <Post getPosts={getPosts} post={reversedPost} key={reversedPost.id}/>
+    {post.map(post=>(
+      <Post getPosts={getPosts} post={post} key={post.id}/>
     ))}
   </div>;
 };

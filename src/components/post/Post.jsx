@@ -40,10 +40,7 @@ console.log(storedToken)
           <div className="userInfo">
             <img src={post.creator.profileImage} alt="" />
             <div className="details">
-             {/*  <Link
-                to={`/profile/${post.creator._id}`}
-                style={{ textDecoration: "none", color: "inherit" }}
-              > */}
+             
                 <span className="name">{post.creator.firstName} {post.creator.lastName}</span>
              {/*</div> </Link>*/}
               <span className="date">1 min ago</span>
