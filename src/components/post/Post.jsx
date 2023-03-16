@@ -66,7 +66,7 @@ console.log(storedToken)
             0 Comments
           </div>
         </div>
-        {commentOpen && <Comments />}
+       {/*  {commentOpen && <Comments />} */}
       </div>
     </div>
   );

@@ -83,7 +83,7 @@ const reversedGallery = [...gallery].reverse();
           <p>Loading...</p>
         ) : (
           <>
-            {gallery.length === 0 ? (
+            {reversedGallery.length === 0 ? (
               <p>No images found in gallery.</p>
             ) : (
               <ImageList sx={{ maxWidth: '100%', height: '10%' }}>

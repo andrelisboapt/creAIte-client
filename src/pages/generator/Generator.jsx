@@ -112,7 +112,7 @@ function Generator() {
                           onChange={handleSelected}
                         />
                         <label htmlFor={`myCheckbox${index}`}>
-                          <img src={result.imageURL} />
+                          <img src={result.imageURL} alt="AI generated"/>
                         </label>
                       </>
                     );
