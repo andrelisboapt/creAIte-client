@@ -75,7 +75,7 @@ const Gallery = () => {
     }
 }
   
-const reversedGallery = [...gallery].reverse();
+
   return (
     <div className="post galleryDiv">
       <div className="container">
