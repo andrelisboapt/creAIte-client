@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import fileDownload from "js-file-download";
-import axios from "axios";
 
 import "./home.scss";
 import "./home.css";
@@ -20,16 +18,6 @@ const Home = () => {
       });
     });
   }, []);
-
-  const handleDownload = (url, filename) => {
-    axios
-      .get(url, {
-        responseType: "blob",
-      })
-      .then((res) => {
-        fileDownload(res.data, filename);
-      });
-  };
 
   return (
     <div className="homepage-container">
