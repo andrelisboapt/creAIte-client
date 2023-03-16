@@ -46,8 +46,8 @@
         margin: 90px 0px;
 
         .img {
-          max-width: 25vw;
-          max-height: 50%;
+          max-width: 100%;
+          max-height: 10%;
           object-fit: cover;
           margin-top: 20px;
           display: flex;
@@ -69,4 +69,16 @@
       }
     } 
   }
+width: 27vw;
+margin-left: 30%;
+
+@media screen and (max-width: 600px) {
+  width: 80vw;
+  margin-left: 8%;
+
+  .img{
+    width: 100vw;
+          max-height: 80%;
+  }
+}
 }

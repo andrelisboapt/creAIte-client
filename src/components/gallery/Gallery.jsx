@@ -74,22 +74,10 @@ const Gallery = () => {
         console.log(error)
     }
 }
-  const editAvatar = async (imgId) => {
-    console.log(imgId)
-    try {
-        await axios.put(`${process.env.REACT_APP_API}/api/gallery/avatar`, {},
-        {
-            headers: { Authorization: `Bearer ${storedToken}` },
-          });
-
-        
-    } catch (error) {
-        console.log(error)
-    }
-} 
+  
 
   return (
-    <div className="post">
+    <div className="post galleryDiv">
       <div className="container">
         {loading ? (
           <p>Loading...</p>
@@ -100,10 +88,11 @@ const Gallery = () => {
             ) : (
               <ImageList sx={{ maxWidth: '100%', height: '10%' }}>
                 <ImageListItem key="Subheader" cols={2}>
+                
                   
                 </ImageListItem>
                 {gallery.map((item) => (
-                  <ImageListItem key={item.imageURL}>
+                  <ImageListItem  classeName="galleryMobile" key={item.imageURL}>
                     <img
                       src={`${item.imageURL}?w=248&fit=crop&auto=format`}
                       srcSet={`${item.imageURL}?w=248&fit=crop&auto=format&dpr=2 2x`}
@@ -112,13 +101,16 @@ const Gallery = () => {
                     />
                     <ImageListItemBar
                       actionIcon={
-                        <ButtonGroup
+                        <ButtonGroup 
+                        
                           variant="text"
                           aria-label="text button group"
                         >
-                          <Button onClick={() => deleteImage(item._id)}>Delete</Button>
-                          <Button onClick={() => editAvatar(item.imageURL)}>Update photo</Button>
-                          <Link to="/post" state={{imageURL:item.imageURL}}>Post</Link>
+                        <div className="galleryBtn">
+                          <Button color="inherit" onClick={() => deleteImage(item._id)}><b>Delete</b></Button>
+                          
+                          <Button color="inherit"><Link to="/post" className="galleryBtn" state={{imageURL:item.imageURL}}><b>Post</b></Link></Button>
+                          </div>
                         </ButtonGroup>
                       }
                     />

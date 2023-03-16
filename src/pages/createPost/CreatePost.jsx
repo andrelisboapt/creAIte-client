@@ -56,7 +56,7 @@ const CreatePost = () => {
        
         <button type="submit">Save</button> 
         </form>
-     {/* <CreateCard/> */}
+     <CreateCard/> 
     </div>
   )
 }

@@ -70,12 +70,12 @@
         }
       }
     }
+    .namesWithoutColor{
+      color: themed("textColor");
+    }
   }
   .linkWithoutColor{
     text-decoration:none;
     color: inherit
   }
-}
-.namesWithoutColor{
-  color:white
 }

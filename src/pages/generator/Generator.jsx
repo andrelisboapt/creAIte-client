@@ -77,7 +77,7 @@ function Generator() {
       <div className="generator">
       
         <h1>Image Generator</h1>
-        <div>
+        <div className="generatorHeader">
           <form onSubmit={handleSubmit}>
             <div className="search">
               <SearchOutlinedIcon />
@@ -87,8 +87,8 @@ function Generator() {
                 value={search}
                 onChange={handleSearch}
               />
-               <button type="submit">Generate</button>
             </div>
+               <button className="generateBtn" type="submit">Generate</button>
             
           </form>
         </div>

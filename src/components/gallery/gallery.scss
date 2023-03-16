@@ -12,6 +12,13 @@
     .container {
       padding: 20px;
 
+
+      @media only screen and (max-width: 600px) {
+        .mobile-only {
+        cols: 2 !important;
+        }
+        }
+        
       .user {
         display: flex;
         align-items: center;
@@ -45,7 +52,7 @@
 
       .content {
         margin: 20px 0px;
-
+        
         img {
           width: 100%;
           max-height: 500px;
@@ -53,12 +60,12 @@
           margin-top: 20px;
         }
       }
-
+      
       .info {
         display: flex;
         align-items: center;
         gap: 20px;
-
+        
         .item {
           display: flex;
           align-items: center;
@@ -73,3 +80,12 @@
 #ListSubheader{
     background-color: aqua;
 }
+.galleryDiv{
+  width: 100%;
+  margin-left: 0;
+}
+.galleryBtn{
+  color:white;
+  text-decoration: none;
+}
+
