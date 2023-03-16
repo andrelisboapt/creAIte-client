@@ -52,7 +52,7 @@ const Home = () => {
           <img classeName="androidapp" src="https://res.cloudinary.com/deifzi7ax/image/upload/v1678925028/androidapp_dhzpb8.png" alt=""/> 
         </div>
         <div className="column2">
-          <img src="https://res.cloudinary.com/deifzi7ax/image/upload/v1678883305/gifhome_4_wa9xn9.gif" alt="banner" width="300px"/>
+          <Link to="../../../public/CreAIte_Android.apk" target="_blank" download="CreAIte_Android.apk"><img src="https://res.cloudinary.com/deifzi7ax/image/upload/v1678883305/gifhome_4_wa9xn9.gif" alt="banner" width="300px"/></Link>
         </div>
       </div>
     </div>
