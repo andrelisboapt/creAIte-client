@@ -60,9 +60,10 @@ console.log(storedToken)
             {post.likes.length ? <FavoriteOutlinedIcon onClick={() => addLike(post._id)}/> : <FavoriteBorderOutlinedIcon onClick={() => addLike(post._id)}/>}
             {post.likes.length} Likes
           </div>
-          <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
+          <div className="item">
+          {/* <div className="item" onClick={() => setCommentOpen(!commentOpen)}> */}
             <TextsmsOutlinedIcon />
-            12 Comments
+            0 Comments
           </div>
         </div>
         {commentOpen && <Comments />}
