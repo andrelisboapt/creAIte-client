@@ -1,12 +1,14 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    
-  }   
+.fixHome {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-  
-  .loginBTN{
-    text-decoration: none;
-    color: rgb(37, 1, 37)
-  }
+.fixMargins {
+  margin: 20px 20px 0px 20px;
+}
+
+.loginBTN {
+  text-decoration: none;
+  color: rgb(37, 1, 37);
+}
