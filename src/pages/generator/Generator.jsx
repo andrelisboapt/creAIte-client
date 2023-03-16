@@ -118,9 +118,11 @@ function Generator() {
                     );
                   })}
                 </div>
+                  <div className="generateBtn">
                 {searchResult.length > 0 && (
                   <button type="submit">Save</button>
                 )}
+                  </div>
               </form>
             </div>
           )}

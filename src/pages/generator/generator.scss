@@ -7,8 +7,12 @@
   align-items: center;
   margin-top: 0px;
   background-color: themed("bgSoft");
-  height: 100%;
-
+  overflow: hidden;
+  position: inherit;
+  height: 100vh;
+  .generateBtn{
+    color: themed("textColor");
+  }
   h1 {
     font-size: 36px;
     margin-top: 3vh;
@@ -17,6 +21,7 @@
     border: 4px solid #ccc;
     background-color: themed("bg");
     padding: 10px;
+    color: themed("textColor");
   }
 
   form {
@@ -29,7 +34,8 @@
     .search {
       display: flex;
       align-items: center;
-      /* margin-bottom: 10px; */
+      color: themed("textColor");
+      /* margin-bottom: 10px;  */
 
       input[type="text"] {
         border-radius: 20px;
@@ -41,9 +47,10 @@
         margin-left: 5px;
         width: 70vw;
         height: 40px;
+        color:themed("textColor");
       }
     }
-
+    
     button {
       border: none;
       background-color: themed("bg");
@@ -72,23 +79,26 @@
 
     input[type="checkbox"] {
       margin-right: 10px;
+    
     }
 
     button[type="submit"] {
       margin-top: 20px;
-      border: none;
+      border: 2px solid #ccc;
       background-color: themed("bg");
-      color: #fff;
+      color: themed("textColor");
       padding: 5px 20px;
       font-size: 18px;
       cursor: pointer;
     }
   }
-  .generateBtn{
+  .save{
+    background-color: themed("bg");
+    border: 2px solid themed("textColor");
     color: themed("textColor");
   }
 }
-}
+
 .genImg{
   display:flex;
   align-items: center;
@@ -102,4 +112,48 @@
 }
 .generatorHeader{
   top: 0;
+}
+.genImgs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.genImgs label {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.genImgs img {
+  max-width: 220px;
+  max-height: 220px;
+}
+
+.genImgs input[type="checkbox"] {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(20%, 50%);
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.genImgs input[type="checkbox"]:checked + label::before {
+  content: "\2713";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 40px;
+  height: 40px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 26px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+}
 }

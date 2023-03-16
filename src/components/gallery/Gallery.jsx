@@ -75,7 +75,7 @@ const Gallery = () => {
     }
 }
   
-
+const reversedGallery = [...gallery].reverse();
   return (
     <div className="post galleryDiv">
       <div className="container">
@@ -91,7 +91,7 @@ const Gallery = () => {
                 
                   
                 </ImageListItem>
-                {gallery.map((item) => (
+                {reversedGallery.map((item) => (
                   <ImageListItem  classeName="galleryMobile" key={item.imageURL}>
                     <img
                       src={`${item.imageURL}?w=248&fit=crop&auto=format`}
