@@ -1,44 +1,63 @@
-
-import React from "react"
+import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
 
 import "./home.scss"
+import "./home.css"
 
 const Home = () => {
+  useEffect(() => {
+    const openNav = () => {
+      document.getElementById("sidenav").style.width = "50%";
+    };
+    const closeNav = () => {
+      document.getElementById("sidenav").style.width = "0%";
+    };
+    document.querySelectorAll('.menubtn, .closeBtn').forEach(el => {
+      el.addEventListener('click', () => {
+        el.classList.contains('menubtn') ? openNav() : closeNav();
+      });
+    });
+  }, []);
+
   return (
-    <div className="home1">
-   
-    <div className="card">
-      <div className="left">
-        <h1>Cre<strong/>AI<stong/>te</h1>
-        <p>
-        How many times have you had an idea but could never get it into a picture?
-        This is the social network for you, write down what you're thinking, generate an image and post. <br/>
-        Share with your friends and the CreAite community. <br/>
-        <br/>
-        <b> The first social network that uses Artificial Intelligence. </b>
-        </p>
-        <div className="btn">
-          <div className="alingn">
-        <span>Don't you have an account?</span>
-        <Link to="/signup">
-          <button>SignUp</button>
-        </Link>
+
+<div className="homepage-container">
+
+
+    <div className="homepage">
+      <nav>
+        <div className="logo">CreAIte</div>
+        {/* <!-- toggle menu button --> */}
+        <span className="menubtn">&#9776;</span>
+
+        <div className="navLinks">
+          <ul>
+            <li><a href="/signup">Signup</a></li>
+            <button type="button"><a className="loginBTN" href="/login">Login</a></button>
+          </ul>
         </div>
-        <div className="alingn">
-        <span>Already have an account?</span>
-        <Link to="/login">
-          <button>LogIn</button>
-        </Link>
-        </div>
-        </div>
+      </nav>
+      {/* <!-- responsive side navbar --> */}
+      <div className="sideNav" id="sidenav">
+        <a className="closeBtn"> &#10006;</a>
+        <a href="/signup">Signup</a>
+        <a href="/login"><button type="button">Login</button> </a>
       </div>
-      <div className="right rightbg">
-      
+
+      {/*  <!-- Header content with banner image --> */}
+      <div className="row">
+        <div className="column1">
+          <h1>Now on Mobile!</h1>
+          <p>Be cre<b>AI</b>tive anytime, anywhere! Download now for Android!</p>
+          <img classeName="androidapp" src="https://res.cloudinary.com/deifzi7ax/image/upload/v1678925028/androidapp_dhzpb8.png" alt=""/> 
+        </div>
+        <div className="column2">
+          <img src="https://res.cloudinary.com/deifzi7ax/image/upload/v1678883305/gifhome_4_wa9xn9.gif" alt="banner" width="300px"/>
+        </div>
       </div>
     </div>
-  </div>
-  )
+    </div>
+  );
 }
 
-export default Home
+export default Home;

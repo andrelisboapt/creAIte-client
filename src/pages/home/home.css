@@ -1,0 +1,10 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+  } 
+  .loginBTN{
+    text-decoration: none;
+    color: rgb(37, 1, 37)
+  }

@@ -1,106 +1,184 @@
-@import "../../style.scss";
 
-.home{
-  @include themify($themes) {
-    padding: 20px 70px;
-    background-color: themed("bgSoft");
-
-    @include mobile {
-      padding: 10px;
-    }
-
-    @include tablet{
-      padding: 20px;
-    }
-  }
-}
-
- .home1 {
+.homepage {
+  background-image: linear-gradient(to right, rgba(22, 6, 22, 0.75), rgba(34, 4, 54, 0.8)), url(https://www.hmablogs.com/wp-content/uploads/2022/06/background-1-scaled.jpg);
+  min-height: 100%;
+  background-repeat: no-repeat;
   height: 100vh;
-  background-color: rgb(193, 190, 255);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .card {
-    width: 55%;
-    display: flex;
-    background-color: white;
-    border-radius: 10px;
-    min-height: 600px;
-    overflow: hidden;
-
-    .left {
-      flex: 1;
-      background: linear-gradient(rgba(39, 11, 96, 0.5), rgba(39, 11, 96, 0.5)),
-        url("https://images.unsplash.com/photo-1512295767273-ac109ac3acfa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80")
-          center;
-      background-size: cover;
-      padding: 50px;
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-      color: white;
-
-      h1 {
-        font-size: 100px;
-        line-height: 100px;
-      }
-      
-      p {
-        text-align: center;
-      }
-
-      span {
-        font-size: 14px;
-      }
-      
-      button {
-        width: 40%;
-        padding: 10px;
-        border: none;
-        background-color: white;
-        color: rebeccapurple;
-        font-weight: bold;
-        cursor: pointer;
-      }
-    }
-
-    .right {
-      flex: 1;
-      background:
-        url("https://res.cloudinary.com/deifzi7ax/image/upload/v1678883305/gifhome_4_wa9xn9.gif")
-          center;
-      background-size: cover;
-      padding: 50px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      justify-content: center;
-
-      h1 {
-      color: #555;
-      }
-      
-      form {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        
-        input {
-        border: none;
-        border-bottom: 10px solid lightgray;
-        padding: 50px 10px;
-        }
-        
-      }
-      }
-    }
-  }
-
-.btn{
-   display: flex;
-   justify-content: center;
-
-
+  width: 100vw;
+  background-attachment:fixed;
+  color: white;
+  font-family: 'Fira Sans', sans-serif;
+  
 }
+.homepage > img{
+  width:100vw;
+  height: 100vh;
+}
+nav {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  padding: 35px 5%;
+}
+nav .logo{
+  font-size: 30px;
+  font-weight: 700;
+}
+nav ul{
+  display: flex;
+  list-style: none;
+}
+nav ul li{
+  padding: 8px 15px;
+  border-radius: 10px;
+  transition: 0.2s ease-in;
+}
+nav ul li a{
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+}
+nav .navLinks button{
+  padding: 2px 20px;
+  border-radius: 10px;
+  color: blue;
+  font-size: 16px;
+  border-style: none;
+  font-weight: 700;
+  margin-left: 10px;
+}
+nav ul li:hover{
+  background-color: rgb(70, 1, 197);
+}
+nav .menubtn{
+  font-size: 30px;
+  font-weight: bolder;
+  cursor: pointer;
+  display: none;
+}
+ 
+/* responsive navbar css */
+@media screen and (max-width: 600px) {
+  nav .menubtn{
+    display: flex;
+  }
+  nav .navLinks{
+    display: none;
+  }
+  .sideNav {
+    display: block !important;
+  }
+}
+ 
+.sideNav{
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0%;
+  background-color: rgb(34, 4, 54);
+  overflow-x: hidden;
+  transition: 0.3s ease-in;
+  padding-top: 60px;
+  display: none;
+}
+ 
+.sideNav a{
+  padding: 8px 8px 8px 40px;
+  display: block;
+  font-size: 25px;
+  font-weight: 500;
+  color: #d1d1d1;
+  transition: 0.3s;
+  text-decoration: none;
+}
+.sideNav a button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: blue;
+  font-size: 16px;
+  border-style: none;
+  font-weight: 700;
+}
+.sideNav a:hover{
+  color: white;
+}
+.sideNav .closeBtn{
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 20px;
+  margin-left: 50px;
+}
+ 
+.row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2% 5%;
+}
+.row .column1 {
+  padding-right: 50px;
+}
+.column1 h1 {
+  font-size: 60px;
+  margin-bottom: 10px;
+}
+.column1 p {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+/* Header content responsive */
+@media screen and (max-width: 980px) {
+  .homepage{
+    min-height: 100%;
+  }
+  .column2 img {
+    width: 60vw;
+  }
+  .column1 h1 {
+    font-size: 40px;
+  }
+  .column1 p{
+    font-size: 17px;
+  }
+  .row {
+    margin-top: 80px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+ 
+  .homepage{
+    min-height: 100%;
+  }
+  .column1 h1 {
+    font-size: 35px;
+  }
+  .row {
+    flex-direction: column;
+    
+  }
+  .row .column1 {
+    padding: 30px;
+  }
+  
+}
+.column1 > img{
+  width: 30vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* https://res.cloudinary.com/deifzi7ax/image/upload/v1678883305/gifhome_4_wa9xn9.gif */
