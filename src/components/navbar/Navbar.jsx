@@ -82,7 +82,7 @@ const Navbar = () => {
         <h2>{user.firstName}</h2>
           <img
             src={user.profileImage}
-            alt=""
+            alt="User avatar"
           />
           
           <span></span>
