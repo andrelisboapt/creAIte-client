@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import "./generator.scss"
 
 function Generator() {
   const [search, setSearch] = useState(null);
@@ -63,7 +64,7 @@ function Generator() {
       //setSelected(apiResponse.data);
 
       setIsLoading(false);
-      navigate("/");
+      navigate("/profile");
     } catch (error) {
       setIsLoading(false);
       console.log(error);
@@ -72,54 +73,60 @@ function Generator() {
 
   const navigate = useNavigate();
 
-  return (
-    <div>
-      <h1>Image Generator</h1>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <div className="search">
-            <SearchOutlinedIcon />
-            <input
-              type="text"
-              placeholder="Search..."
-              value={search}
-              onChange={handleSearch}
-            />
-          </div>
-          <button type="submit">Generate</button>
-        </form>
+    return (
+      <div className="generator">
+      
+        <h1>Image Generator</h1>
+        <div>
+          <form onSubmit={handleSubmit}>
+            <div className="search">
+              <SearchOutlinedIcon />
+              <input
+                type="text"
+                placeholder="Be creative in your research..."
+                value={search}
+                onChange={handleSearch}
+              />
+               <button type="submit">Generate</button>
+            </div>
+            
+          </form>
+        </div>
+        <div>
+          {isLoading && searchResult.length ? (
+            <>
+              <p>Loading...</p>
+              <p>Please wait until your image is ready.</p>
+            </>
+          ) : (
+            <div className="container">
+              <form onSubmit={handleAdd}>
+                <div className="genImgs">
+                  {searchResult.map((result, index) => {
+                    return (
+                      <>
+                        <input
+                          type="checkbox"
+                          id={`myCheckbox${index}`}
+                          value={result._id}
+                          onChange={handleSelected}
+                        />
+                        <label htmlFor={`myCheckbox${index}`}>
+                          <img src={result.imageURL} />
+                        </label>
+                      </>
+                    );
+                  })}
+                </div>
+                {searchResult.length > 0 && (
+                  <button type="submit">Save</button>
+                )}
+              </form>
+            </div>
+          )}
+        </div>
       </div>
-      <div>
-        {isLoading && searchResult.length ? (
-          <>
-            <p>Loading...</p>
-            <p>Please wait until your image is ready.</p>
-          </>
-        ) : (
-          <div class="container">
-            <form onSubmit={handleAdd}>
-              {searchResult.map((result, index) => {
-                return (
-                  <>
-                    <input
-                      type="checkbox"
-                      id={`myCheckbox${index}`}
-                      value={result._id}
-                      onChange={handleSelected}
-                    />
-                    <label for={`myCheckbox${index}`}>
-                      <img src={result.imageURL} />
-                    </label>
-                  </>
-                );
-              })}
-              <button type="submit">Save</button>
-            </form>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
-
-export default Generator;
+    );
+    }
+    
+    export default Generator;

@@ -45,6 +45,7 @@ function Signup() {
 
 
   return (
+    <div className="credentialsBG">
 <Container component="main" maxWidth="sm">
         <Box
           sx={{
@@ -52,10 +53,11 @@ function Signup() {
             borderRadius: 2,
             px: 4,
             py: 6,
-            marginTop: 8,
+            marginTop: 0,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            backgroundColor:'white',
           }}
         >
           <Typography component="h1" variant="h5">
@@ -128,6 +130,7 @@ function Signup() {
           </Box>
         </Box>
       </Container>
+      </div>
     );
   }
   export default Signup

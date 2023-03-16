@@ -30,7 +30,7 @@ const LeftBar = () => {
          <a target="_blank" className="linkWithoutColor" href="https://recipe-generator.cyclic.app">
           <div className="item">
             <img src={Friends} alt="" />
-            <p>Diner Recepies</p>
+            <p>Dinner Recipes</p>
           </div>
           </a>
 

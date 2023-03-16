@@ -47,18 +47,21 @@ const handleSubmit = async (e) => {
 const navigate = useNavigate()
 
     return (
-    
-      <Container component="main" maxWidth="sm" >
+    <div className="credentialsBG">
+      <Container component="main" maxWidth="sm">
         <Box 
+            
           sx={{
             boxShadow: 7,
             borderRadius: 2,
             px: 4,
-            py: 6,
-            marginTop: 8,
+            py: 16,
+            marginTop: 0,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
+            backgroundColor:'white',
+            
           }}
         >
           <Typography component="h1" variant="h5">
@@ -107,6 +110,7 @@ const navigate = useNavigate()
           </Box>
         </Box>
       </Container>
+     </div>
     );
   }
 
