@@ -37,7 +37,7 @@ const CreatePost = () => {
         }
       );
    
-        
+      navigate("/feed");
     } catch (error) {
         console.log(error)
     }
@@ -45,7 +45,57 @@ const CreatePost = () => {
 
 
   return (
-    <div className="home">
+   <div className="createPostbg">
+    <div className="post createPostbg">
+    <div className="container">
+      <div className="user">
+        <div className="userInfo">
+          {/* <img src={profileImage} alt="" /> */}
+          <div className="details">
+            
+              {/* <span className="name">{firstName}</span> */}
+          
+            
+          </div>
+        </div>
+      </div>
+      <div className="content">
+        <img src={imageURL} alt="" />
+
+        <form onSubmit={handleSubmit}>
+        <label htmlFor="description">Description: </label>
+        <input type="text" name="description" id="description" value={description} onChange={handleDescription} /><br />
+       
+        <button type="submit">Post</button> 
+        </form>
+        {/* <p>{post.desc}</p> */}
+      </div>
+      
+    </div>
+  </div>
+  </div>
+);
+  }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   /* <div className="home">
 
 <img src={imageURL}/>
 
@@ -59,6 +109,6 @@ const CreatePost = () => {
      <CreateCard/> 
     </div>
   )
-}
+} */
 
 export default CreatePost
