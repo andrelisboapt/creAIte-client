@@ -5,10 +5,10 @@
       rgba(34, 4, 54, 0.8)
     ),
     url(https://www.hmablogs.com/wp-content/uploads/2022/06/background-1-scaled.jpg);
-  
+  background-size: cover;
   background-repeat: no-repeat;
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   background-attachment: fixed;
   color: white;
   font-family: "Fira Sans", sans-serif;
@@ -68,7 +68,7 @@ nav .menubtn {
 @media screen and (max-width: 600px) {
   
 .homepage{
-  height: 100vh;
+  
   width: 100;
 }
   nav .menubtn {
@@ -161,7 +161,8 @@ nav .menubtn {
 
 @media screen and (max-width: 600px) {
   .homepage {
-    min-height: 100%;
+    height: 131vh;
+    overflow:hidden;
   }
   .column1 h1 {
     font-size: 35px;
