@@ -5,7 +5,7 @@ import { useContext, useState, useEffect } from "react";
 
 const Posts = () => {
 
-  const [post, setPost] = useState([]);
+  const [postOriginal, setPostOriginal] = useState([]);
   const storedToken = localStorage.getItem("authToken");
 
   
@@ -19,7 +19,7 @@ const Posts = () => {
         }
       );
       console.log(response)
-      setPost(response.data)
+      setPostOriginal(response.data)
       
     } catch (error) {
       console.log(error);
@@ -31,7 +31,7 @@ const Posts = () => {
 
   }, []);
 
-
+  const post = [...postOriginal].reverse();
   
   return <div className="posts">
     {post.map(post=>(

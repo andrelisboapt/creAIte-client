@@ -24,7 +24,7 @@ import { useNavigate } from "react-router-dom";
 const Gallery = () => {
     
   const [user, setUser] = useState([]);
-  const [gallery, setGallery] = useState([])
+  const [galleryOriginal, setGalleryOriginal] = useState([])
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
@@ -44,7 +44,7 @@ const Gallery = () => {
       );
       
       setUser(response.data);
-      setGallery(response.data.gallery)
+      setGalleryOriginal(response.data.gallery)
       setLoading(false)
       
       
@@ -74,7 +74,7 @@ const Gallery = () => {
         console.log(error)
     }
 }
-  
+const gallery = [...galleryOriginal].reverse();
 
   return (
     <div className="post galleryDiv">
